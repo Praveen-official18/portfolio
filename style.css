@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1e1e1e;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background: #111;
+  padding: 20px 0;
+  border-bottom: 2px solid #00d8ff;
+  text-align: center;
+}
+
+header .logo {
+  color: #00d8ff;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+header nav a {
+  color: #00d8ff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  color: #fff;
+}
+
+/* Sections */
+section {
+  padding: 60px 0;
+}
+
+section h2 {
+  text-align: center;
+  color: #00d8ff;
+  margin-bottom: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* About Section */
+.about-content {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Profile Image Hover Effect */
+.about-content img {
+  width: 180px;
+  border-radius: 50%;
+  border: 3px solid #00d8ff;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px #00d8ff, 0 0 15px #00d8ff;
+}
+
+.about-content img:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 0 20px #00d8ff, 0 0 40px #00d8ff, 0 0 60px #00d8ff;
+  border-color: #fff;
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.highlights {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.highlights li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.highlights li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #00d8ff;
+  font-size: 1.2rem;
+}
+
+/* Neon Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 2px solid #00d8ff;
+  color: #00d8ff;
+  background: #111;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 0 5px #00d8ff, 0 0 10px #00d8ff;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #00d8ff;
+  color: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #00d8ff, 0 0 40px #00d8ff;
+}
+
+/* Resume Section */
+.resume-details h3 {
+  margin-top: 15px;
+  color: #00d8ff;
+}
+
+/* Project Cards */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background: #111;
+  border: 2px solid #00d8ff;
+  border-radius: 12px;
+  padding: 25px;
+  width: 260px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #00d8ff;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 20px #00d8ff, 0 0 40px #00d8ff;
+}
+
+.project-card h3 {
+  color: #00d8ff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.project-card p {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  border-top: 2px solid #00d8ff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+}

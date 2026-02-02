@@ -1,97 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Praveen Kumar Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praveen ❤️ Boomika</title>
+
+<!-- ✒️ Handwriting Font -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  color:white;
+  background:radial-gradient(circle at top,#2a004f,#12001f,#000);
+  overflow-x:hidden;
+}
+
+/* 🌌 STARS */
+.star{
+  position:fixed;
+  width:2px;height:2px;
+  background:white;
+  opacity:.7;
+  animation:twinkle 4s infinite alternate;
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+
+/* HERO */
+.center{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+h1{font-size:3rem;text-shadow:0 0 25px #c77dff}
+p{max-width:520px;font-size:1.2rem}
+
+/* BUTTON */
+.btn{
+  margin-top:25px;
+  padding:14px 36px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  font-size:1rem;
+  color:white;
+  background:linear-gradient(45deg,#ff5cf4,#a855f7);
+  box-shadow:0 0 25px rgba(255,120,255,.8);
+}
+.btn:hover{transform:scale(1.05)}
+
+/* ❤️ HEART RAIN */
+.heart{
+  position:fixed;
+  top:-20px;
+  font-size:22px;
+  animation:fall linear forwards;
+}
+@keyframes fall{to{transform:translateY(110vh);opacity:0}}
+
+/* 📜 PAPER INTRO */
+.paperSection{
+  display:none;
+  padding:120px 20px;
+  background:
+    radial-gradient(circle at top,#3b0764,#1e0038),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.04) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+.paper{
+  max-width:720px;
+  margin:auto;
+  background:#fdf6e3;
+  color:#3a1a4f;
+  padding:50px;
+  border-radius:18px;
+  font-family:'Dancing Script',cursive;
+  font-size:1.5rem;
+  line-height:1.9;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.6),
+    inset 0 0 40px rgba(0,0,0,.18);
+  animation:paperUnroll 1.6s ease forwards;
+  transform-origin:top;
+  opacity:0;
+}
+@keyframes paperUnroll{
+  from{transform:translateY(80px) scaleY(.6);opacity:0}
+  to{transform:translateY(0) scaleY(1);opacity:1}
+}
+.paper h2{text-align:center;margin-bottom:25px;font-size:2.2rem}
+
+/* 📸 GALLERY */
+.gallery{
+  display:none;
+  justify-content:center;
+  padding:50px 20px;
+}
+.slideFrame{
+  width:90%;
+  max-width:900px;
+  height:60vh;
+  position:relative;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 0 50px rgba(200,120,255,.8);
+}
+.slideBg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  filter:blur(25px) brightness(.6);
+  transform:scale(1.2);
+}
+.slideImg{
+  position:relative;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  z-index:1;
+  animation:fade 1s;
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* 💍 PROPOSAL */
+#proposal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+.card{
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(20px);
+  padding:40px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 0 60px rgba(200,120,255,1);
+}
+.ring{
+  font-size:80px;
+  animation:ring 2s infinite;
+}
+@keyframes ring{
+  0%{transform:scale(.9)}
+  50%{transform:scale(1.1)}
+  100%{transform:scale(.9)}
+}
+.proBtns{display:flex;gap:20px;justify-content:center;margin-top:25px}
+
+/* 💌 LOVE LETTER */
+#loveLetter{
+  min-height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:100px 20px;
+}
+.letterBox{
+  max-width:700px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(20px);
+  padding:45px;
+  border-radius:30px;
+  box-shadow:0 0 60px rgba(216,180,254,.9);
+  font-family:'Dancing Script',cursive;
+  font-size:1.6rem;
+  line-height:1.9;
+}
+.letterBox h2{text-align:center;margin-bottom:20px;font-size:2.3rem}
+.sign{text-align:right;margin-top:20px}
+
+/* 🎆 FIREWORK */
+.firework{
+  position:fixed;
+  font-size:26px;
+  animation:boom 1s forwards;
+}
+@keyframes boom{to{transform:scale(3);opacity:0}}
+/* 🔐 LOCK SCREEN */
+#lockScreen{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,#3b0764,#0f001a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.lockCard{
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(20px);
+  padding:40px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 0 60px rgba(200,120,255,.9);
+  animation:fadeIn 1s;
+}
+
+.lockCard h2{
+  margin-bottom:10px;
+  text-shadow:0 0 20px #d8b4fe;
+}
+
+.lockCard input{
+  padding:12px 18px;
+  border-radius:25px;
+  border:none;
+  outline:none;
+  width:220px;
+  margin-top:15px;
+  font-size:1rem;
+  text-align:center;
+}
+
+.lockCard button{
+  margin-top:18px;
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(45deg,#ff5cf4,#a855f7);
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(255,120,255,.8);
+}
+
+#lockMsg{
+  margin-top:12px;
+  color:#ff9dfc;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(.8)}
+  to{opacity:1;transform:scale(1)}
+}
+
+</style>
 </head>
+
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1 class="logo">Praveen Kumar</h1>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- 🔐 LOCK SCREEN -->
+<div id="lockScreen">
+  <div class="lockCard">
+    <h2>💜 Private Love Space 💜</h2>
+    <p>Secret key enter pannunga 🔑</p>
+    <input type="password" id="lockInput" placeholder="Enter key..." />
+    <button onclick="unlock()">Unlock ❤️</button>
+    <p id="lockMsg"></p>
+  </div>
+</div>
 
-  <!-- About Me Section -->
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <div class="about-content">
-        <img src="images/profile.jpg.jpeg" alt="Profile Photo">
-        <div class="about-text">
-          <p>Hello! I'm <strong>Praveen Kumar</strong>, a passionate <strong>IT student</strong> and web developer. I build projects that solve real-world problems and love exploring new technologies.</p>
-          <ul class="highlights">
-            <li> Skilled in HTML, CSS, JavaScript, Python, React</li>
-            <li> Completed projects like Resume Analyzer Web App & Heart Risk Predictor</li>
-            <li> Strong problem-solving and analytical skills</li>
-            <li> Always eager to learn and explore new technologies</li>
-          </ul>
-          <a class="btn" href="resume.pdf" download>Download My Resume</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Resume Section -->
-  <section id="resume">
-    <div class="container">
-      <h2>Resume</h2>
-      <a class="btn" href="resume.pdf" download>Download My Resume</a>
-      <div class="resume-details">
-        <h3>Education</h3>
-        <p>B.Tech in Information Technology - Dr. MGR University</p>
-        <h3>Skills</h3>
-        <p>HTML, CSS, JavaScript, Python, React</p>
-        <h3>Experience</h3>
-        <p>Internship at XYZ Company (Web Development)</p>
-      </div>
-    </div>
-  </section>
+<script>
+for(let i=0;i<120;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  document.body.appendChild(s);
+}
+</script>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3>Resume Analyzer Web App</h3>
-          <p>A web app to analyze resumes, give ATS score and suggestions.</p>
-        </div>
-        <div class="project-card">
-          <h3>Heart Risk Predictor</h3>
-          <p>A Python app predicting heart risk based on user data.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- HERO -->
+<div class="center">
+  <h1>Prem ❤️ Jaanu</h1>
+  <p>Indha paattu play pannina apram… namma kaadhal start aagum 💜</p><br><br>
+  <p>Hey..wait ..wait ..button click pandrathuku munnadiunta onu sollanum I love you ...</p>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Email: praveen@example.com</p>
-      <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
-      <p>GitHub: <a href="#">Your GitHub</a></p>
-    </div>
-  </section>
+  <button class="btn" onclick="startLove()">Play Music 🎵</button>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Praveen Kumar</p>
-    </div>
-  </footer>
+<!-- 📜 PAPER INTRO -->
+<section class="paperSection" id="paperIntro">
+  <div class="paper">
+    <h2>My Heart on Paper 💌</h2>
+    <p>
+      Idhu oru gallery illa…<br>
+     Innaiku kaalam kooda ninnu
+namma kaadhal-a paathu rasikkudhu ⏳✨
+rendu varusham munnaadi
+vidhi ezhudhiya oru variyil
+Kanna & Srii nu serndhuduchu 💖
+<br><br>
 
-  <script src="script.js"></script>
+Un sirippu oru kavithai 😄
+naan padikka padikka
+artham perugudhu 🌸
+un mounam oru paadal 🤍
+ketka ketka
+en manasa nirappudhu 💓
+<br><br>
+
+Mazhai maadhiri vandha sandai ☔
+pozhiyudhu, pogudhu
+aana mannoda vaasanai maadhiri
+namma kaadhal mattum
+aazhamaa irukku 🌱❤️
+<br><br>
+
+Un kai pidicha andha neram 🤝
+ulagam ellam
+oru siru pulli-a maarudhu 🌍
+nee pakkathula irundhaa
+bayam nu oru vaarthai
+en dictionary-la irukkaadhu 🕊️
+<br><br>
+
+Nee en palakkam illa ❌
+nee en pazhakkamum illa
+nee en praanam 💞
+nee en naalai 🌅
+nee en endrum ♾️
+<br><br>
+Indha rendu varusham
+oru kavidhai-yoda mudhal stanza 📜
+innum varappora kaalam
+namma kaadhal-oda
+muzhu paadal 🎶❤️
+<br><br>
+Endha jenmam eduthaalum
+andha mudhal paarvai-la 👀
+Kanna thirumba thirumba
+Srii-ai thaan theduven 💖♾️
+<br><br>
+"Happy 2nd Love Anniversary my uyire ❤️✨"
+    </p>
+  </div>
+</section>
+
+<!-- 📸 GALLERY -->
+<div class="gallery" id="gallery">
+  <div class="slideFrame">
+    <div class="slideBg" id="slideBg"></div>
+    <img id="slide" class="slideImg">
+  </div>
+</div>
+
+<!-- 💍 PROPOSAL -->
+<div id="proposal">
+  <div class="card">
+    <div class="ring">💍</div>
+    <h2>Forever With Me?</h2>
+    <div class="proBtns">
+      <button class="btn" onclick="yes()">YES 💖</button>
+      <button class="btn" onclick="no()">NO 🙈</button>
+    </div>
+  </div>
+</div>
+
+<!-- 💌 LOVE LETTER -->
+<section id="loveLetter">
+  <div class="letterBox">
+    <h2>For My Jaanu 💜</h2>
+    <p>
+     Innaiku namma 2nd Love Anniversary 💕, rendu varusham munnaadi start aana namma journey 🚶‍♂️🚶‍♀️ innaiku varaikum en (Kanna-oda) heart-la romba deep-aa idam pidichirukku Srii 😘. Unna first time paatha andha oru second-la irundhu ✨ en life-ku oru pudhu meaning, oru pudhu direction vandhuchu 💫. Nee sirichaal podhum 😄 Kanna-oda ellaa worries-um kaatla parakkum 🌸, nee silent-aa irundhaal kooda 🤍 andha mounathula kooda namma kaadhal romba loud-aa pesum 💖. Namma sandaiyum 😅 misunderstandings-um vandhirukku 😌, aana ovvoru time-um adhellaam thaandi Kanna & Srii-oda love innum strong-aa, innum mature-aa grow aagudhu 💪❤️. Srii-oda kai pidichu 🤝 nadandha ovvoru naalum, enakku oru blessing-maadhiri, oru assurance-maadhiri irukku 🙏✨. Srii en habit illa ❌, en life 💑; Srii en choice illa ❌, en destiny 🌍💞. Indha rendu varusham just trailer thaan 🎬, innum varappora namma future full movie-ku 🎥 naan Kanna romba excited-aa wait pannitu irukken 😍. Endha situation-um irundhaalum 🌈, eppovum Srii-oda pakkathula irukkanum nu en heart mattum illa, en whole soul-um solludhu 💓. Kanna always chooses Srii 💖, today, tomorrow, and forever ♾️💍. Happy 2nd Love Anniversary my love Srii ❤️🎉
+    </p>
+    <div class="sign">– Always Yours, Praveen</div>
+  </div>
+</section>
+
+<!-- 🎶 MUSIC -->
+<audio id="song1" loop><source src="Music/remo song .mpeg"></audio>
+<audio id="song2" loop><source src="Music/En-Jeevan.mp3"></audio>
+
+<script>
+const images=[
+"images/photo1_theatre.jpg",
+ "images/photo2_car.jpg",
+ "images/photo3_scooty.jpg",
+ "images/photo4_dogfilter.jpg",
+ "images/photo5_temple.jpg"
+];
+let idx=0, slideInt;
+
+function updateSlide(){
+  slide.src=images[idx];
+  slideBg.style.backgroundImage=`url(${images[idx]})`;
+}
+
+function startLove(){
+  song1.play();
+  paperIntro.style.display="block";
+  gallery.style.display="flex";
+  updateSlide();
+
+  setTimeout(()=>{
+    proposal.style.display="flex";
+  },120000);
+}
+
+function yes(){
+  proposal.style.display="none";
+  song1.pause();
+  song2.play();
+
+  slideInt=setInterval(()=>{
+    idx=(idx+1)%images.length;
+    updateSlide();
+  },2500);
+
+  for(let i=0;i<30;i++){
+    const f=document.createElement("div");
+    f.className="firework";
+    f.innerHTML="🎆";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*100+"vh";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1000);
+  }
+
+  loveLetter.style.display="flex";
+  setTimeout(()=>{
+    loveLetter.scrollIntoView({behavior:"smooth"});
+  },600);
+}
+
+function no(){
+  event.target.style.transform=`translate(${Math.random()*80-40}px,${Math.random()*60-30}px)`;
+}
+
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML=["💜","💖","💕"][Math.floor(Math.random()*3)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=5+Math.random()*4+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9000);
+},500);
+/* 🔐 SECRET KEY */
+const SECRET_KEY = "247108"; // 👈 change this (small letters recommended)
+
+function unlock(){
+  const val=document.getElementById("lockInput").value;
+  const msg=document.getElementById("lockMsg");
+  const card=document.querySelector(".lockCard");
+
+  if(val === SECRET_KEY){
+    document.getElementById("lockScreen").style.display="none";
+  }else{
+    msg.innerText="Wrong key 🙈 try again";
+    card.style.animation="shake .3s";
+    setTimeout(()=>card.style.animation="",300);
+  }
+}
+
+/* SHAKE */
+const style=document.createElement("style");
+style.innerHTML=`
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  50%{transform:translateX(6px)}
+  75%{transform:translateX(-6px)}
+  100%{transform:translateX(0)}
+}`;
+document.head.appendChild(style);
+
+</script>
+
 </body>
 </html>
